@@ -1,7 +1,7 @@
 
-
-// create a struct where I can compare to 
-// make value the type
+// reason to hard code is to have a seperate source of truth that isn't dependent on the api I am testing.
+// possible scenarios is what if a change is added that alters the schema in a way that the other endpoints would start failing
+// this way only the getSchema test would have a validation failure which would be quicker to diagnose than having all endpoints fail
 const People = {
     name: "string",
     birth_year: "string",

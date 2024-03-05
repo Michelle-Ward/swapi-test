@@ -3,9 +3,9 @@ const axios = require('axios')
 
 function getAll(path) {
     // given path make api request
-    axios.get(path)
+    axios.get(`https://swapi.dev/api/${path}/`)
     .then( (res) => {
-        return (null, res)
+        return [null, res]
     })
     .catch( (err) => {
         return err
@@ -13,9 +13,9 @@ function getAll(path) {
 }
 
 function getById(path, targetId) {
-    axios.get(path, {params: {id: targetId}})
+    axios.get(`https://swapi.dev/api/${path}/`, {params: {id: targetId}})
     .then( (res) => {
-        return (null, res)
+        return [null, res]
     })
     .catch( (err) => {
         return err
@@ -23,9 +23,9 @@ function getById(path, targetId) {
 }
 
 function getSchema(path) {
-    axios.get(`${path}/schema/`)
+    axios.get(`https://swapi.dev/api/${path}/schema/`)
     .then( (res) => {
-        return (null, res)
+        return [null, res]
     })
     .catch( (err) => {
         return err
@@ -33,10 +33,10 @@ function getSchema(path) {
 }
 
 // some endpoints are searchable by a param like name or model
-function getByParam(path, paramName, paramVal) {
-    axios.get(path, {params: {[paramName]: paramVal}})
+function getByParam(path, searchVal) {
+    axios.get(`https://swapi.dev/api/${path}/?search=${searchVal}`)
     .then( (res) => {
-        return (null, res)
+        return [null, res]
     })
     .catch( (err) => {
         return err
@@ -59,4 +59,13 @@ function validateBySchema(schema, data) {
         }
     }
     return true
+}
+
+
+module.exports = {
+    getAll,
+    getById,
+    getSchema,
+    getByParam,
+    validateBySchema
 }
