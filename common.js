@@ -31,3 +31,32 @@ function getSchema(path) {
         return err
     })
 }
+
+// some endpoints are searchable by a param like name or model
+function getByParam(path, paramName, paramVal) {
+    axios.get(path, {params: {[paramName]: paramVal}})
+    .then( (res) => {
+        return (null, res)
+    })
+    .catch( (err) => {
+        return err
+    })
+}
+
+// given data check if it follows the correct schema
+// expand after tests are created
+function validateBySchema(schema, data) {
+    if (schema.keys().length !== data.keys().length) {
+        return false
+    }
+    
+    for (let [key, val] in data) {
+        if (schema[key] === "array" && !Array.isArray(val)) {
+            return false
+        }
+        if (schema[key] !== typeof val) {
+            return false
+        }
+    }
+    return true
+}
