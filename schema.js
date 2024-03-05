@@ -34,6 +34,82 @@ const Film = {
     characters: "array",
     planets: "array",
     url: "string",
-    create: "string",
+    created: "string",
     edited: "string"
+}
+
+const Starship = {
+    name: "string", 
+    model: "string",
+    starship_class: "string",
+    manufacturer: "string",
+    cost_in_credits: "string",
+    length: "string",
+    crew: "string",
+    passengers: "string",
+    max_atmosphering_speed: "string",
+    hyperdrive_rating: "string",
+    MGLT: "string",
+    cargo_capacity: "string",
+    consumables: "string",
+    films: "array",
+    pilots: "array",
+    url: "string",
+    created: "string",
+    edited: "string"
+}
+
+const Vehicle = {
+    name: "string",
+    model: "string",
+    vehicle_class: "string",
+    manufacturer: "string",
+    length: "string",
+    cost_in_credits: "string",
+    crew: "string",
+    passengers: "string",
+    max_atmosphering_speed: "string",
+    cargo_capacity: "string",
+    consumables: "string",
+    films: "array",
+    pilots: "array",
+    url: "string",
+    created: "string",
+    edited: "string"
+}
+
+const Species = {
+    name: "string",
+    classification: "string",
+    designation: "string",
+    average_height: "string",
+    average_lifespan: "string",
+    eye_colors: "string", // TEST is it comma seperated  or none
+    hair_colors: "string", 
+    skin_colors: "string",
+    language: "string",
+    homeworld: "string",
+    people: "array",
+    films: "array",
+    url: "string",
+    created: "string",
+    edited: "string",
+}
+
+
+const Planet = {
+    name: "string",
+    diameter: "string",
+    rotation_period: "string",
+    orbital_period: "string",
+    gravity: "string",
+    population: "string",
+    climate: "string",
+    terrain: "string",
+    surface_water: "string",
+    residents: "array",
+    films: "array",
+    url: "string",
+    created: "string",
+    edited: "string,"
 }
