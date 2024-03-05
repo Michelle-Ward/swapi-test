@@ -20,3 +20,20 @@ const People = {
     created: "string", //TEST valid date?
     edited: "string", //""
 }
+
+const Film = {
+    title: "string", 
+    episode_id: "number", // integer TEST that it is valid integer
+    opening_crawl: "string",
+    director: "string",
+    producer: "string",
+    release_date: "string", // test it is a valid date
+    species: "array", // test valid urls
+    starships: "array",
+    vehicles: "array",
+    characters: "array",
+    planets: "array",
+    url: "string",
+    create: "string",
+    edited: "string"
+}
