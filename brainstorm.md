@@ -54,3 +54,6 @@ language
 
 ### steps
     - create schemas.ts 
+    - create the common function
+    - create surface level validation function
+    - create common test cases
