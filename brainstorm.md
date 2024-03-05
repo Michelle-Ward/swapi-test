@@ -46,6 +46,11 @@ how do I compare the schema and data?
     - what happens if api schema is wrong? that means test would fail anyway
     - pros of hardcoding is you can see it in the test, interact with it, and create generators off of it which can be helpful when PUT and POST endpoints are added in the future
 
+framework Jest
+    -- short config time considering time constraint of take home
+language
+    -- using js but would use typscript for the benefits of types and structs
+
 
 ### steps
     - create schemas.ts 
