@@ -41,3 +41,13 @@ get by schema
     - it should respond with 200 code to a get request
     - it should contain a json response
     - it should match the schema of the given path
+
+how do I compare the schema and data?
+    - api gives schema
+    - documentation available to hard codes
+    - what happens if api schema is wrong? that means test would fail anyway
+    - pros of hardcoding is you can see it in the test, interact with it, and create generators off of it which can be helpful when PUT and POST endpoints are added in the future
+
+
+### steps
+    - create schemas.ts 
