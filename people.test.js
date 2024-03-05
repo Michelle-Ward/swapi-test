@@ -8,6 +8,7 @@ describe("people",() => {
         let [err,res] = getAll("people");
         expect(err).toBe(null)
         expect(res.response.status).toBe(200)
+        // TODO: add forEach
         expect(validateBySchema(People, res.response.data)).toBeTrue()
     })
     test('it should get a person by id', () => {
@@ -21,10 +22,16 @@ describe("people",() => {
         expect(err).toBeTruthy()
         expect(res.response.status).toBe(404)
     })
-    test('it should get a person by params', () => {
-        let [err,res] = getByParams("people", 1);
+    test('it should get a person by param', () => {
+        let [err,res] = getByParam("people", "TODO add a valid name");
         expect(err).toBe(null)
         expect(res.response.status).toBe(200)
         expect(validateBySchema(People, res.response.data)).toBeTrue()
+    })
+    test('it should get people schema', () => {
+        let [err,res] = getSchema("people");
+        expect(err).toBe(null)
+        expect(res.response.status).toBe(200)
+        expect(validateBySchema(Planet, res.response.data)).toBeTrue()
     })
 })
