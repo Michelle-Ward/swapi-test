@@ -57,3 +57,21 @@ language
     - create the common function
     - create surface level validation function
     - create common test cases
+    - add testing command
+    - verify common fetch can connect
+
+
+    ## source api may have issue with schema endpoint
+        when queried directly 
+            
+
+GET /api/films/schema/
+
+HTTP 404 NOT FOUND
+Content-Type: application/json
+Vary: Accept
+Allow: GET, HEAD, OPTIONS
+
+{
+    "detail": "Not found"
+}
