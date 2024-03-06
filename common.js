@@ -3,29 +3,29 @@ const axios = require('axios')
 
 async function getAll(path) {
     try {
-        let res = await axios.get(`https://swapi.dev/api/${path}/`)
-        return [null, res]
+        let res = await axios.get(`https://swapi.dev/api/${path}`)
+        return res
     } catch (err) {
-        return [err]
+        return err
     }
 }
 
 
 async function getById(path, targetId) {
     try {
-        let res = await axios.get(`https://swapi.dev/api/${path}/`, {params: {id: targetId}})
-        return [null, res]
+        let res = await axios.get(`https://swapi.dev/api/${path}/${targetId}`)
+        return res
     } catch (err) {
-        return [err]
+        return err
     }
 }
 
 async function getSchema(path) {
     try {
         let res = await axios.get(`https://swapi.dev/api/${path}/schema/`)
-        return [null, res]
+        return res
     } catch (err) {
-        return [err]
+       return err
     }
 }
 
@@ -33,24 +33,25 @@ async function getSchema(path) {
 async function getByParam(path, searchVal) {
     try {
         let res = await axios.get(`https://swapi.dev/api/${path}/?search=${searchVal}`)
-        return [null, res]
+        return res
     } catch (err) {
-        return [err]
+        return err
     }
 }
 
 // given data check if it follows the correct schema
 // expand after tests are created
 function validateBySchema(schema, data) {
-    if (schema.keys().length !== data.keys().length) {
+    if (Object.keys(schema).length !== Object.keys(data).length) {
         return false
     }
     
-    for (let [key, val] in data) {
+    for (const key in data) {
+        let val = data[key]
         if (schema[key] === "array" && !Array.isArray(val)) {
             return false
         }
-        if (schema[key] !== typeof val) {
+        if (schema[key] !== typeof val && schema[key] !== "array") {
             return false
         }
     }
@@ -58,7 +59,7 @@ function validateBySchema(schema, data) {
 }
 
 function validateAllBySchema(schema, dataArr) {
-    dataArr.every( (d) => validateBySchema(schema, d))
+    return dataArr.every( (d) => validateBySchema(schema, d))
 }
 
 
