@@ -9,10 +9,12 @@ describe("Film",() => {
                 expect(validateAllBySchema(Film, response.data.results)).toBeTruthy()
             })
             .catch((err) => {
+                // Axios api call and above expects should not error out
                 expect(err).toBe(null)
             })
     })
     test('it should get a Film by id', () => {
+        // if bounds of ids in db is known I would replace the hardcoded integer with a randomGenerator within the id bounds
         return getById("films", 1)
             .then((response) => {
                 expect(response.status).toBe(200)
@@ -28,6 +30,7 @@ describe("Film",() => {
                 expect(response.response.status).toBe(404)
             })
             .catch((err) => {
+                // API will return 404 which will register as an error in axios. console.log since we want an error in this case
                 console.log(err)
             })
     })
@@ -55,6 +58,7 @@ describe("Film",() => {
                 expect(err).toBe(null)
             })
     })
+    // Expecting this test to fail. When trying the API's own website and with postman the schema endpoint responded 404.
     test('it should get Film schema', () => {
         return getSchema("films")
             .then((response) => {

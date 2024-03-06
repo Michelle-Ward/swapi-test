@@ -52,7 +52,7 @@ describe("Vehicle",() => {
                 expect(response.data.results.length).toBe(0)
             })
             .catch((err) => {
-                console.log(err)
+                expect(err).toBe(null)
             })
     })
     test('it should get a vehicle by model', () => {
@@ -76,7 +76,7 @@ describe("Vehicle",() => {
                 expect(response.data.results.length).toBe(0)
             })
             .catch((err) => {
-                console.log(err)
+                expect(err).toBe(null)
             })
     })
     test('it should get Vehicle schema', () => {

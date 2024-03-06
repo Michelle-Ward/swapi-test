@@ -2,7 +2,6 @@ const { getAll, getById, getByParam, getSchema, validateBySchema, validateAllByS
 const {Planet} = require('../helpers/schema.js')
 
 describe("Planet",() => {
-    
     test('it should get all Planets', () => {
         return getAll("planets")
             .then((response) => {

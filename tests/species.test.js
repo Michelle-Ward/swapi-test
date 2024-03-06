@@ -2,6 +2,8 @@ const { getAll, getById, getByParam, getSchema, validateBySchema, validateAllByS
 const {Species} = require('../helpers/schema.js')
 
 describe("Species",() => {
+    // This test fails the schema validation due to homeworld value not being a string. The documentation states in other cases the value would be "none" or "n/a"
+    // I opted to not accomodate this null in the validation function and to allow it to assert an error in this case
     test('it should get all Species', () => {
         return getAll("species")
             .then((response) => {
