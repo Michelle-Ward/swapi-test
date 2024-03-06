@@ -113,3 +113,12 @@ const Planet = {
     created: "string",
     edited: "string,"
 }
+
+module.exports = {
+    Film,
+    Planet,
+    People,
+    Species,
+    Starship,
+    Vehicle
+}
