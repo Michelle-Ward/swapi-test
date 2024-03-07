@@ -1,4 +1,4 @@
-const { getAll, getById, getByParam, getSchema, validateBySchema, validateAllBySchema} = require('../helpers/common.js')
+const { getAll, getById, getByParam, getSchema, validateBySchema, validateAllBySchema, generateInvalidString} = require('../helpers/common.js')
 const {Starship} = require('../helpers/schema.js')
 
 describe("Starship",() => {
@@ -45,7 +45,7 @@ describe("Starship",() => {
             })
     })
     test('it should return an empty result when given an invalid name', () => {
-        return getByParam("starships", "titanic")
+        return getByParam("starships", generateInvalidString())
             .then((response) => {
                 expect(response.status).toBe(200)
                 expect(response.data.count).toBe(0)

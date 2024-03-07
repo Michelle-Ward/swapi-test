@@ -1,9 +1,11 @@
 // hold common functions shared by test
 const axios = require('axios')
 const base_url = "https://swapi.dev/api/"
-async function getAll(path) {
+async function getAll(path) {    
+
     try {
         let res = await axios.get(`${base_url}${path}`)
+        console.log(res.data.results)
         return res
     } catch (err) {
        return err
@@ -62,6 +64,18 @@ function validateAllBySchema(schema, dataArr) {
     return dataArr.every( (d) => validateBySchema(schema, d))
 }
 
+function generateValidTitle() {
+    let titles = ["Attack of the Clones", "The Phantom Menace", "Return of the Jedi", "The Empire Strikes Back", "A New Hope"]
+    return titles[Math.floor(Math.random() * titles.length)]
+}
+
+// add function generate invalid names, species, models etc...
+
+function generateInvalidString() {
+    return `${Math.random() * 600}`
+}
+
+
 
 module.exports = {
     getAll,
@@ -70,5 +84,7 @@ module.exports = {
     getByParam,
     validateBySchema,
     validateAllBySchema,
+    generateValidTitle,
+    generateInvalidString,
     base_url
 }

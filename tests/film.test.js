@@ -1,4 +1,4 @@
-const { getAll, getById, getByParam, getSchema, validateBySchema, validateAllBySchema} = require('../helpers/common.js')
+const { getAll, getById, getByParam, getSchema, validateBySchema, validateAllBySchema, generateValidTitle, generateInvalidString} = require('../helpers/common.js')
 const {Film} = require('../helpers/schema.js')
 
 describe("Film",() => {
@@ -34,7 +34,8 @@ describe("Film",() => {
                 console.log(err)
             })
     })
-    test('it should get a Film by title', () => {
+    // validate that searching by title returns the correct film
+    test('it should get a Episode 4 by title', () => {
         return getByParam("films", "A New Hope")
             .then((response) => {
                 expect(response.status).toBe(200)
@@ -47,8 +48,20 @@ describe("Film",() => {
                 expect(err).toBe(null)
             })
     })
+    test('it should get a Film by title', () => {
+        return getByParam("films", generateValidTitle())
+            .then((response) => {
+                expect(response.status).toBe(200)
+                expect(response.data.count).toBe(1)
+                expect(validateAllBySchema(Film, response.data.results)).toBeTruthy()
+
+            })
+            .catch((err) => {
+                expect(err).toBe(null)
+            })
+    })
     test('it should return an empty result when given an invalid title', () => {
-        return getByParam("films", "Star Trek")
+        return getByParam("films", generateInvalidString())
             .then((response) => {
                 expect(response.status).toBe(200)
                 expect(response.data.count).toBe(0)
