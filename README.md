@@ -35,3 +35,7 @@ As the API as-is has a lot of overlap and similarities another implementation co
 I would also see if I could write a test file generator. Since there is a lot of repeated code, I could utilize the single file and loop implementation but have it be a script that would produce a test file with the given arguments in the repo. Any shared test cases could be added to this. I have done file generation scripts with Python. With more time than the take home has, I would try to recreate that in typescript.
 
 There is a github action setup to run the tests on any push or merge request to main. We can extend this to run an eslint step and also compile code to deploy if we were to add a service to this repo.
+
+I implemented one generator function to randomly choose valid titles for films. I would also implement the same for the names and models. 
+
+Lastly, we can expand and utilize formatValidations.js to add more test to check that the data is outputted in the way described by the documentation. ex. URLS are valid url strings, birth year ends with BBY, genders  can be defined as an enum must match one of them. 

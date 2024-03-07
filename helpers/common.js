@@ -5,7 +5,6 @@ async function getAll(path) {
 
     try {
         let res = await axios.get(`${base_url}${path}`)
-        console.log(res.data.results)
         return res
     } catch (err) {
        return err
